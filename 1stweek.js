@@ -100,3 +100,100 @@ const classmates = [
 ];
 
 classmates[1].school = "다람쥐초등학교"
+
+
+// 4. 데이터 타입 (연습문제)
+// **013. 데이터 타입 구분**
+// 주어진 변수 str과 number의 데이터 타입을 확인하세요.
+let str = "3"
+let number = 3
+
+typeof str;
+typeof number;
+
+
+// **014. 배열과 객체의 데이터 타입**
+// 주어진 변수 array과 object의 데이터 타입을 확인하세요.
+let array = []
+let object = {}
+
+typeof array //object
+typeof object //object
+
+Array.isArray(array) //true
+Array.isArray(object) //false
+
+// **015. 데이터 타입 변경**
+// num에 데이터를 string으로 변경 후, str에 할당해주세요.
+let num = 24
+let str = Number(num)
+
+typeof str // "number"
+
+// ## 6. 조건문 (연습문제)
+// 018. 조건문 연습
+// input1, input2에는 boolean 타입인 true, false가 입력됩니다.
+// 둘 중에 하나라도 true라면 "true"
+// 두 개 모두 false면 "false"라는 문구를 띄워주세요.
+
+function boolean(input1, input2) {
+
+	if(input1 === true || input2 === true) {
+		console.log("true")
+	}else{console.log("false")}
+}
+
+// 019. 홀짝
+// 입력되는 숫자가 짝수인지 홀수인지 구별하는 함수를 만들려고 합니다. 
+// 입력된 값이 "짝수"이면 "Even", "홀수"이면 "Odd", 0이면 "Zero"라는 문구를 띄워주세요.
+function evenOdd(num){
+	if (num === 0) {
+		console.log("Zero");
+	} else if (num % 2 === 0) {
+		console.log("Even");
+	} else {
+		console.log("Odd");
+	}
+}
+
+
+// **020. 온도**
+// 입력되는 온도에 따라 문구를 띄워주는 온도계 함수를 만들려고 합니다.
+// 입력된 값에 따라 알맞은 문구를 띄워주세요
+// 18이하면 "조금 춥네요"
+// 19~23이면 "날씨가 좋네요"
+// 24이상이면 "조금 덥습니다"
+
+function temperature(num){
+	if (num < 19) {
+		console.log("조금 춥네요");
+	} else if (num <23 ) {
+		console.log("날씨가 좋아요");
+	} else {
+		console.log("조금 덥습니다.");
+	}
+}
+
+temperature(13)  // "조금 춥네요"
+temperature(23)  // "날씨가 좋네요"
+temperature(27)  // "조금 덥습니다"
+
+
+// 021. 며칠
+// 입력되는 달(month)에 따라 각 달에 며칠이 있는지 보여주는 함수를 만들려고 합니다.
+// 각 조건에 해당하는 알맞은 값을 입력해주세요.
+
+function days(month){
+	if (month === 4 || 
+        month === 6 ||
+      	month === 9 ||
+       	month ===11) 
+    {console.log("30일");} 
+	  else if (month === 2) 
+    	{ console.log("28일");}
+  		else {console.log ("31일")}
+}
+
+days(1) // 31
+days(2) // 28
+days(4) // 30
