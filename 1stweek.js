@@ -212,10 +212,10 @@ function sum(num) {
 
   sum(6); // 21
 
-	// (멘토풀이)
+// (멘토풀이)
 function sum(num) {
 	let count = 0;
-		for (let i=0; i<= num; i+1) {
+		for (let i = 0; i <= num; i + 1) {
 			count = count + i
 		}
 		console.log(count)
@@ -244,7 +244,7 @@ function countLetter(str) {
 //(멘토풀이)
 function makeNumber(num) {
 	let str = ''
-	for ( let i =1; i <= num; i + 1) {
+	for ( let i = 1; i <= num; i + 1) {
 		str = str + i;
 
 		if( i !== num ){
