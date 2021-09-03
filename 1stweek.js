@@ -282,3 +282,101 @@ function bigNum(str) {
 		}
 	}
 }
+
+// 41. 조건문 실전 적용 - 점수에 따른 등급 
+// 입력되는 score에 따라 알맞은 등급을 적어야 합니다.
+// 100~90 → "A"
+// 89~80 → "B"
+// 79~70 → "C"
+// 69~60 → "D"
+// 59점 이하는 "F"
+// 100점 초과나 0점 미만은 "잘못된 점수입니다"라는 문구를 띄워주세요.
+
+function grade(score){
+    
+	if(score>=90 && score <=100){  
+	console.log("A");
+	} else if (80<=score && 89>=score){
+	console.log("B");
+	} else if (70<=score && 79>=score){
+	console.log("C");  
+	} else if (60<=score && 69>=score){
+	console.log("D");  
+	} else if (0>score && 100<score){
+	console.log("잘못된 점수 입니다.")  
+	} else {
+	console.log("F");
+	}
+	
+}
+	
+grade(60); // "D"
+
+
+//(멘토풀이)
+function grade(score) {
+let result="";
+
+if (score > 100 || score <0 ){
+	result = " 잘못된 점수 입니다.";
+} else if (score>=90 && score <= 100){
+	result = "A"
+} else if (score>=80&&score<=89){
+	result = "B";
+} else if (score >= 70 && score < 79){
+	result = "C";
+} else if ( score >= 60 && score <= 69 ){
+	result = "D"
+} else if ( secore <= 59){ 
+	result = "F"; 
+}
+console.log(result)
+}
+
+// **043. 마이페이지**
+// 오른쪽 myShooping은 내가 구매한 목록을 보여주고 있습니다.
+// 해당 목록에서 "의류"를 구매한 횟수와 총 금액을 나타내고, 
+// "의류"를 구매한 횟수에 따라 등급을 나타내세요.
+
+// 등급표
+// "0~2"  ⇒ Bronze
+// "3~4" ⇒ Silver
+// 5이상 ⇒ Gold
+
+//멘토풀이
+const myShopping = [
+	{ category: "과일", price: 12000　},
+	{ category: "의류", price:10000　 },
+	{ category: "의류", price: 20000　},
+	{ category: "장난감", price: 9000 },
+	{ category: "과일", price: 5000　 },
+	{ category: "의류", price: 10000  },
+	{ category: "과일", price: 8000　　},
+	{ category: "의류", price: 7000　　},
+	{ category: "장난감", price: 5000  },
+	{ category: "의류", price: 10000　 },
+]
+
+let count = 0; // 물품을 구매한 횟수를 담아주는 변수
+let price = 0; // 총 가격을 담아주는 변수
+let grade = ''; // 최종 등급을 담아주는 변수
+
+for( i=0; i <myShopping.length; i++ ){
+
+	if( myShopping[i].category === "의류" ){
+		count = count +1;
+		price = price + myShopping[i].price
+    }
+
+
+if ( count >=0 && count <=2 ){
+		grade= 'bronze'
+	}	else if (count >= 3&& count <= 4){
+		grade = 'sliver'
+	}	else if (count >= 5){
+		grade = 'gold'
+	}
+	
+}
+
+console.log('의류를 구매한 횟수는 총' + count + '회 금액은' + price +'원이며 등급은' + grade +'입니다.')
