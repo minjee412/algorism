@@ -56,9 +56,6 @@ function solution(phone_number) {
             answer = answer + phone_number[i];
         }
     }
-}
-
     return answer;
 }
 
-// 풀이
