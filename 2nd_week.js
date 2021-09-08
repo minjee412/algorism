@@ -149,3 +149,119 @@ function solution(s) {
     ? s[half - 1] + s[half]
     : s[half]
 }
+
+
+// 서울에서 김서방 찾기
+// 문제 설명
+// String형 배열 seoul의 element중 "Kim"의 위치 x를 찾아, "김서방은 x에 있다"는 String을 반환하는 함수, 
+// solution을 완성하세요. seoul에 "Kim"은 오직 한 번만 나타나며 잘못된 값이 입력되는 경우는 없습니다.
+
+function solution(seoul) {
+    var answer = '';
+    
+    answer = "김서방은 " + seoul.indexOf("Kim") + "에 있다";
+    
+    return answer;
+}
+
+//풀이
+//1) 방법
+function solution(seoul) {
+    let x = 0;
+    for (let i = 0; i < seoul.length; i++){
+        console.log(seoul[i])// Jane
+                             // Kim
+                            
+        if ( seoul[i] === 'Kim'){
+            x = i;
+
+            break; // 반복문 종료
+        }
+    }
+    return '김서방은' + x + '에 있다.';
+}
+
+//2) 방법
+function solution(seoul) {
+    let x = seoul.indexOf('Kim');
+    return '김서방은' + x + '에 있다.';
+}
+
+
+// 문자열 다루기 기본
+// 문제 설명
+// 문자열 s의 길이가 4 혹은 6이고, 숫자로만 구성돼있는지 확인해주는 함수, solution을 완성하세요. 
+// 예를 들어 s가 "a234"이면 False를 리턴하고 "1234"라면 True를 리턴하면 됩니다.
+
+function solution(s) {
+    var answer = true;
+    
+    if((s.length === 4 || s.length === 6) && !isNaN(s)){
+        answer = true;
+    }else{
+        answer = false;
+    }
+    return answer;
+}
+
+//풀이
+//1) for문 사용
+function solution(s) {
+    var answer = true;
+    
+    if(s.length !==4 && s.length !==6 ){
+        return false;
+    }
+        for (let i = 0; i<s.length; i++){
+            if( isNaN(s[i]) === true ){
+            answer = false;
+
+            break;
+            }
+        }
+    return answer;
+}
+
+//2) filter사용
+function solution(s) {
+    if(s.length !==4 && s.length !==6 ){
+        return false;
+    }
+                    //문자열을 배열로 만들어 준다.
+    const answer = s.split("")
+                    .filter( str => isNaN(str) === true )
+                    .length === 0;
+
+        return answer;
+}
+// 약수의 합
+// 문제 설명
+// 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
+
+//풀이
+//1)
+function solution(n) {
+    var answer = 0;
+    
+    for ( let i = 1; i <= n; i++){
+        if( n % i === 0){
+            answer = answer + i;
+        }
+    }
+    return answer;
+}
+
+//2)
+function solution(n) {
+    var answer = 0;
+
+    const array = 
+        new Array(n)
+        .fill(1)
+        .forEach(( num, index ) => {
+            n % ( num + index ) === 0
+                ? answer = answer + ( num + index )
+                : null
+        })
+        return answer;
+}
