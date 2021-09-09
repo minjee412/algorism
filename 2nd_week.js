@@ -18,6 +18,7 @@ function solution(s) {
     return s / 1; // = return Number(s)
 }
 
+
 // 같은 숫자는 싫어
 // 배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다. 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다. 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다. 예를 들면,
 // arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.
@@ -264,4 +265,73 @@ function solution(n) {
                 : null
         })
         return answer;
+}
+
+
+// 자릿수 더하기
+// 문제 설명
+// 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+// 예를들어 N = 123이면 1 + 2 + 3 = 6을 return 하면 됩니다.
+function solution(n)
+{
+    var answer = 0;
+    var answer2 = n.toString();
+    
+    for(let i = 0; i < answer2.length; i++){
+        answer = answer + Number(answer2[i]);
+    }
+        return (answer)
+}
+
+//풀이
+// 1)
+function solution(n)
+{
+    var result = 0;
+    
+    n = String(n);
+    
+    for(let i = 0; i < n.length; i++){
+        result = result + Number(n[i]);
+    }
+        return (result)
+}
+
+// 2)
+function solution(n)
+{
+    var result = 0;
+    
+    const arry = String(n)
+                    .split("")
+                    .forEach(num=>{
+                        result = result + Number(num);
+                    })
+        return (result)
+}
+
+
+// x만큼 간격이 있는 n개의 숫자
+// 문제 설명
+// 함수 solution은 정수 x와 자연수 n을 입력 받아, x부터 시작해 x씩 증가하는 숫자를 n개 지니는 리스트를 리턴해야 합니다. 
+// 다음 제한 조건을 보고, 조건을 만족하는 함수, solution을 완성해주세요.
+
+function solution(x, n) {
+    var answer = [];
+    
+    for(let i = 1; i <= n; i++ ){
+        answer.push (x*i)
+    }
+    return answer;
+}
+
+//풀이
+function solution(x, n) {
+    
+    const array = new Array(n)
+                        .fill(x)
+                        .map((number, index) =>{
+                            return number * (index + 1)
+                      })
+    return array;
 }
